@@ -7,7 +7,7 @@
 prepare_cases_deaths_health_regions <- function(cases_deaths, uf_code = 22){
 
   # Health regions from a UF
-  subset_health_regions <- health_regions %>%
+  subset_health_regions <- dadosPainelPI::health_regions %>%
     dplyr::filter(substr(.data$cod_mun, start = 0, stop = 2) == uf_code)
 
   cases_deaths %>%
