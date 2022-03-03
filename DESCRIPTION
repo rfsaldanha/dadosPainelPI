@@ -15,7 +15,8 @@ Imports:
     microdatasus,
     readr,
     rlang,
-    tibble
+    tibble,
+    tidyr
 Remotes: rfsaldanha/microdatasus
 Suggests: 
     testthat (>= 3.0.0)
