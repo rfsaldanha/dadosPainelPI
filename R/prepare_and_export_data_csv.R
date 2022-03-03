@@ -12,25 +12,27 @@ prepare_and_export_data_csv <- function(files_folder = "data-raw/cases_deaths_ex
   # Cases and deaths
   message("Cases and deaths...")
 
+  time_date_stamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
+
   db_cases_deaths <- read_cases_deaths(files_folder)
 
   db_cases_deaths %>%
     prepare_cases_deaths_uf() %>%
-    readr::write_csv2(file = paste0(dest_folder, "/cases_deaths_uf_", format(Sys.Date(), "%Y%m%d"), ".csv"), na = "")
+    readr::write_csv2(file = paste0(dest_folder, "/cases_deaths_uf_", time_date_stamp, ".csv"), na = "")
 
   db_cases_deaths %>%
     prepare_cases_deaths_health_regions() %>%
-    readr::write_csv2(file = paste0(dest_folder, "/cases_deaths_health_regions_", format(Sys.Date(), "%Y%m%d"), ".csv"), na = "")
+    readr::write_csv2(file = paste0(dest_folder, "/cases_deaths_health_regions_", time_date_stamp, ".csv"), na = "")
 
   db_cases_deaths %>%
     prepare_cases_deaths_municipalities() %>%
-    readr::write_csv2(file = paste0(dest_folder, "/cases_deaths_municipalities_", format(Sys.Date(), "%Y%m%d"), ".csv"), na = "")
+    readr::write_csv2(file = paste0(dest_folder, "/cases_deaths_municipalities_", time_date_stamp, ".csv"), na = "")
 
   # Hospital admissions
   message("Hospital admissions...")
 
   prepare_hospital_admissions_uf(year_start = year_start, year_end = year_end, month_start = month_start, month_end = month_end) %>%
-    readr::write_csv2(file = paste0(dest_folder, "/hospital_admissions_uf_", format(Sys.Date(), "%Y%m%d"), ".csv"), na = "")
+    readr::write_csv2(file = paste0(dest_folder, "/hospital_admissions_uf_", time_date_stamp, ".csv"), na = "")
 
   message("Done!")
 
