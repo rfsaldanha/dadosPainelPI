@@ -30,7 +30,7 @@ prepare_and_export_data_csv <- function(files_folder = "data-raw/cases_deaths_ex
   message("Hospital admissions...")
 
   prepare_hospital_admissions_uf(year_start = year_start, year_end = year_end, month_start = month_start, month_end = month_end) %>%
-    readr::write_csv2(file = paste0(dest_folder, "/prepare_hospital_admissions_uf_", format(Sys.Date(), "%Y%m%d"), ".csv"), na = "")
+    readr::write_csv2(file = paste0(dest_folder, "/hospital_admissions_uf_", format(Sys.Date(), "%Y%m%d"), ".csv"), na = "")
 
   message("Done!")
 
