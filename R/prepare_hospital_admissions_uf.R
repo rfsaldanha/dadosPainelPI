@@ -8,7 +8,7 @@
 #' @param month_end End month. Numeric.
 #' @return A tibble.
 #' @importFrom rlang .data
-prepare_hospital_admissions_uf <- function(uf_code = 22, uf_acronym = "PI", year_start = 2020, year_end = 2022, month_start = 1, month_end = 1){
+prepare_hospital_admissions_uf <- function(uf_code = 22, uf_acronym = "PI", year_start = 2020, year_end = 2021, month_start = 1, month_end = 12){
   # Download DataSUS data
   datasus_data <- microdatasus::fetch_datasus(
     uf = uf_acronym,
