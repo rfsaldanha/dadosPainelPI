@@ -8,9 +8,9 @@ prepare_hospital_admissions_uf(
   uf_code = 22,
   uf_acronym = "PI",
   year_start = 2020,
-  year_end = 2022,
+  year_end = 2021,
   month_start = 1,
-  month_end = 1
+  month_end = 12
 )
 }
 \arguments{
