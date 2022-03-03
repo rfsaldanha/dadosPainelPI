@@ -30,8 +30,8 @@ prepare_cases_deaths_uf <- function(cases_deaths, uf_code = 22, with_rate = TRUE
     # Calculate rate
     res <- res %>%
       dplyr::mutate(
-        acum_cases_rate = round((.data$acum_cases / pop)*100, digits),
-        acum_deaths_rate = round((.data$acum_deaths / pop)*100, digits),
+        acum_cases_rate = round((.data$acum_cases / pop)*constant, digits),
+        acum_deaths_rate = round((.data$acum_deaths / pop)*constant, digits),
       )
   }
 
