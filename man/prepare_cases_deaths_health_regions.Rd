@@ -4,12 +4,24 @@
 \alias{prepare_cases_deaths_health_regions}
 \title{Prepare a tibble with cases and deaths for health regions}
 \usage{
-prepare_cases_deaths_health_regions(cases_deaths, uf_code = 22)
+prepare_cases_deaths_health_regions(
+  cases_deaths,
+  uf_code = 22,
+  with_rate = TRUE,
+  constant = 1e+05,
+  digits = 2
+)
 }
 \arguments{
 \item{cases_deaths}{A tibble from read_cases_deaths}
 
 \item{uf_code}{UF code. Defaults to 22.}
+
+\item{with_rate}{Logical. Calculate per capita rate.}
+
+\item{constant}{Numerical. Constant for rate.}
+
+\item{digits}{Numerical. Digits for rates.}
 }
 \value{
 A tibble.
