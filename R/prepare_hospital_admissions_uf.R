@@ -1,24 +1,13 @@
 #' Prepare a tibble with health admissions count for a UF
 #
+#' @param hospital_admissions_data Data from `fetch_hospital_admissions_data` function.
 #' @param uf_code UF code. Defaults to 22.
-#' @param uf_acronym UF acronym. Defaults to PI.
-#' @param year_start Start year. Numeric.
-#' @param year_end End year. Numeric.
-#' @param month_start Start month. Numeric.
-#' @param month_end End month. Numeric.
 #' @return A tibble.
 #' @importFrom rlang .data
-prepare_hospital_admissions_uf <- function(uf_code = 22, uf_acronym = "PI", year_start = 2020, year_end = 2021, month_start = 1, month_end = 12){
-  # Download DataSUS data
-  datasus_data <- microdatasus::fetch_datasus(
-    uf = uf_acronym,
-    year_start = year_start, year_end = year_end,
-    month_start = month_start, month_end = month_end,
-    information_system = "SIH-RD"
-  )
+prepare_hospital_admissions_uf <- function(hospital_admissions_data, uf_code = 22){
 
   # General hospital admissions
-  res1 <- datasus_data %>%
+  res1 <- hospital_admissions_data %>%
     dplyr::filter(.data$DIAG_PRINC == "B342") %>%
     dplyr::mutate(uf_res = substr(x = .data$MUNIC_RES, start = 0, stop = 2)) %>%
     dplyr::filter(.data$IDENT != 5) %>%
@@ -29,7 +18,7 @@ prepare_hospital_admissions_uf <- function(uf_code = 22, uf_acronym = "PI", year
     dplyr::ungroup()
 
   # ICU hospitalizations
-  res2 <- datasus_data %>%
+  res2 <- hospital_admissions_data %>%
     dplyr::filter(.data$DIAG_PRINC == "B342") %>%
     dplyr::mutate(uf_res = substr(x = .data$MUNIC_RES, start = 0, stop = 2)) %>%
     dplyr::filter(.data$IDENT != 5) %>%

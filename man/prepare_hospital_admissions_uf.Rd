@@ -4,27 +4,12 @@
 \alias{prepare_hospital_admissions_uf}
 \title{Prepare a tibble with health admissions count for a UF}
 \usage{
-prepare_hospital_admissions_uf(
-  uf_code = 22,
-  uf_acronym = "PI",
-  year_start = 2020,
-  year_end = 2021,
-  month_start = 1,
-  month_end = 12
-)
+prepare_hospital_admissions_uf(hospital_admissions_data, uf_code = 22)
 }
 \arguments{
+\item{hospital_admissions_data}{Data from \code{fetch_hospital_admissions_data} function.}
+
 \item{uf_code}{UF code. Defaults to 22.}
-
-\item{uf_acronym}{UF acronym. Defaults to PI.}
-
-\item{year_start}{Start year. Numeric.}
-
-\item{year_end}{End year. Numeric.}
-
-\item{month_start}{Start month. Numeric.}
-
-\item{month_end}{End month. Numeric.}
 }
 \value{
 A tibble.
