@@ -21,8 +21,18 @@ prepare_cases_deaths_health_regions <- function(cases_deaths, uf_code = 22, with
       date = .data$data, cod_rs = .data$cod_rs_450,
       new_cases = .data$casosNovos, acum_cases = .data$casosAcumulado,
       new_deaths = .data$obitosNovos, acum_deaths = .data$obitosAcumulado
-    )
+    ) %>%
+    # Group municipalities by date and health region and sum
+    dplyr::group_by(.data$date, .data$cod_rs) %>%
+    dplyr::summarise(
+      new_cases = sum(.data$new_cases, na.rm = TRUE),
+      new_deaths = sum(.data$new_deaths, na.rm = TRUE),
+      acum_cases = sum(.data$acum_cases, na.rm = TRUE),
+      acum_deaths = sum(.data$acum_deaths, na.rm = TRUE),
+    ) %>%
+    dplyr::ungroup()
 
+  # Calculate rates
   if(with_rate == TRUE){
     res <- res %>%
       dplyr::left_join(y = dadosPainelPI::population_health_region, by = c("cod_rs" = "cod_rs_450")) %>%
