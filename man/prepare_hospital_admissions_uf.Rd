@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepare_hospital_admissions_uf.R
 \name{prepare_hospital_admissions_uf}
 \alias{prepare_hospital_admissions_uf}
-\title{Prepare a tibble with health admissions count for a UF}
+\title{Prepare a tibble with hospital admissions count for a UF}
 \usage{
 prepare_hospital_admissions_uf(hospital_admissions_data, uf_code = 22)
 }
@@ -15,5 +15,5 @@ prepare_hospital_admissions_uf(hospital_admissions_data, uf_code = 22)
 A tibble.
 }
 \description{
-Prepare a tibble with health admissions count for a UF
+Prepare a tibble with hospital admissions count for a UF
 }

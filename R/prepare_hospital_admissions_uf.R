@@ -1,4 +1,4 @@
-#' Prepare a tibble with health admissions count for a UF
+#' Prepare a tibble with hospital admissions count for a UF
 #
 #' @param hospital_admissions_data Data from `fetch_hospital_admissions_data` function.
 #' @param uf_code UF code. Defaults to 22.
