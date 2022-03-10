@@ -5,7 +5,7 @@
 \title{Prepare and export data to CSV files}
 \usage{
 prepare_and_export_data_csv(
-  files_folder = "data-raw/cases_deaths_example/",
+  cases_deaths_folder = "data-raw/cases_deaths_example/",
   dest_folder,
   year_start = 2021,
   year_end = 2021,
@@ -14,17 +14,17 @@ prepare_and_export_data_csv(
 )
 }
 \arguments{
-\item{files_folder}{Folder with cases and deaths files.}
+\item{cases_deaths_folder}{Folder with cases and deaths files.}
 
 \item{dest_folder}{Destination folder for CSV files.}
 
-\item{year_start}{Start year. Numeric.}
+\item{year_start}{Start year. Numeric. For SIH data.}
 
-\item{year_end}{End year. Numeric.}
+\item{year_end}{End year. Numeric. For SIH data.}
 
-\item{month_start}{Start month. Numeric.}
+\item{month_start}{Start month. Numeric. For SIH data.}
 
-\item{month_end}{End month. Numeric.}
+\item{month_end}{End month. Numeric. For SIH data.}
 }
 \value{
 A tibble.
