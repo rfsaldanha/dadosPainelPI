@@ -39,5 +39,8 @@ prepare_and_export_data_csv <- function(cases_deaths_folder = "data-raw/cases_de
   prepare_hospital_admissions_municipalities(hospital_admissions_data = tmp) %>%
     readr::write_csv2(file = paste0(dest_folder, "/hospital_admissions_municipalities_", time_date_stamp, ".csv"), na = "")
 
+  prepare_hospital_admissions_health_regions(hospital_admissions_data = tmp) %>%
+    readr::write_csv2(file = paste0(dest_folder, "/hospital_admissions_health_regions_", time_date_stamp, ".csv"), na = "")
+
   message("Done!")
 }
