@@ -13,11 +13,14 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
+    DBI,
+    dbplyr,
     dplyr,
     magrittr,
     microdatasus,
     readr,
     rlang,
+    RSQLite,
     tibble,
     tidyr
 Remotes: rfsaldanha/microdatasus
