@@ -5,7 +5,7 @@
 \alias{population_uf}
 \title{Population UF table}
 \format{
-A data frame with 27 rows and 3 variables:
+A data frame with 27 rows and 3 variables.:
 \describe{
 \item{uf_code}{UF code from IBGE.}
 \item{uf}{UF acronym.}
