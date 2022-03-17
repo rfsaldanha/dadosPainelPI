@@ -9,7 +9,7 @@ read_sivep_gripe(files_folder, chunk_size = 1e+05)
 \arguments{
 \item{files_folder}{Path to folder containing CSV files from Brazilian Health Ministry}
 
-\item{chunk_size}{Integer. Chunk size to read CSV files.}
+\item{chunk_size}{Integer. Chunk size to read CSV files. Default 100,000 lines.}
 }
 \value{
 A connection to a temporary SQLite database with Sivep Gripe data in table called \code{sivep_gripe}.
