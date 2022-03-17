@@ -2,7 +2,7 @@
 #'
 #' @param files_folder Path to folder containing CSV files from Brazilian Health Ministry
 #' @param chunk_size Integer. Chunk size to read CSV files. Default 100,000 lines.
-#' @return A connection to a temporary SQLite database with Sivep Gripe data in table called `sivep_gripe`.
+#' @return A lazy connection to Sivep Gripe table in a SQLite database stored in a temporary folder.
 #' @importFrom rlang .data
 
 read_sivep_gripe <- function(files_folder, chunk_size = 100000){
@@ -191,6 +191,9 @@ read_sivep_gripe <- function(files_folder, chunk_size = 100000){
   # List of Sivep Gripe files
   files_list <- list.files(path = files_folder, full.names = TRUE)
 
+  # Remove table from database if exists
+  if(DBI::dbExistsTable(conn = conn_sivep_gripe, name = "sivep_gripe")) DBI::dbRemoveTable(conn = conn_sivep_gripe, name = "sivep_gripe")
+
   # Read files from the list in chunks and store in temporary database
   for(f in files_list){
     message(f)
@@ -198,5 +201,5 @@ read_sivep_gripe <- function(files_folder, chunk_size = 100000){
   }
 
   # Return the connection object to the temporary database
-  return(conn_sivep_gripe)
+  return(dplyr::tbl(conn_sivep_gripe, "sivep_gripe"))
 }

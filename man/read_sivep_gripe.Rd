@@ -12,7 +12,7 @@ read_sivep_gripe(files_folder, chunk_size = 1e+05)
 \item{chunk_size}{Integer. Chunk size to read CSV files. Default 100,000 lines.}
 }
 \value{
-A connection to a temporary SQLite database with Sivep Gripe data in table called \code{sivep_gripe}.
+A lazy connection to Sivep Gripe table in a SQLite database stored in a temporary folder.
 }
 \description{
 Read Sivep Gripe files from Brazilian Health Ministry
