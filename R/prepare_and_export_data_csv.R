@@ -8,7 +8,7 @@
 #' @param month_end End month. Numeric. For SIH data.
 #' @return A tibble.
 #' @importFrom rlang .data
-prepare_and_export_data_csv <- function(cases_deaths_folder = "data-raw/cases_deaths_example/", dest_folder, year_start = 2021, year_end = 2021, month_start = 1, month_end = 1){
+prepare_and_export_data_csv <- function(cases_deaths_folder = "data-raw/cases_deaths_example/", sipni_folder, dest_folder, year_start = 2021, year_end = 2021, month_start = 1, month_end = 1){
   # Cases and deaths
   message("Cases and deaths...")
 
@@ -47,6 +47,21 @@ prepare_and_export_data_csv <- function(cases_deaths_folder = "data-raw/cases_de
 
   dadosPainelPI::context_var_mun %>%
     readr::write_csv2(file = paste0(dest_folder, "/context_var_mun_", time_date_stamp, ".csv"), na = "")
+
+  # Vaccination data
+  message("Vaccination data...")
+
+  tmp <- read_sipni(files_folder = sipni_folder)
+
+  prepare_vaccination_uf(lazy_sipni = tmp) %>%
+    readr::write_csv2(file = paste0(dest_folder, "/vaccination_uf_", time_date_stamp, ".csv"), na = "")
+
+  prepare_vaccination_health_regions(lazy_sipni = tmp) %>%
+    readr::write_csv2(file = paste0(dest_folder, "/vaccination_health_regions_", time_date_stamp, ".csv"), na = "")
+
+  prepare_vaccination_municipalities(lazy_sipni = tmp) %>%
+    readr::write_csv2(file = paste0(dest_folder, "/vaccination_municipalities_", time_date_stamp, ".csv"), na = "")
+
 
   message("Done!")
 }
