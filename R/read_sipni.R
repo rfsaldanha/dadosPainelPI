@@ -10,7 +10,7 @@ read_sipni <- function(files_folder, chunk_size = 100000){
   db_file_path <- tempfile()
 
   # Create temporary database and connection
-  conn_sipni <- DBI::dbConnect(RSQLite::SQLite(), db_file_path)
+  conn_sipni <- DBI::dbConnect(RSQLite::SQLite(), db_file_path, extended_types = TRUE)
 
   # SIPNI columns definitions
   cols_definitions <- readr::cols(
