@@ -57,7 +57,7 @@ read_sipni <- function(files_folder, chunk_size = 100000){
   files_list <- list.files(path = files_folder, full.names = TRUE)
 
   # Remove table from database if exists
-  if(DBI::dbExistsTable(conn = conn_sipni, name = "sipni")) DBI::dbRemoveTable(conn = conn_sipni, name = "sivep_gripe")
+  if(DBI::dbExistsTable(conn = conn_sipni, name = "sipni")) DBI::dbRemoveTable(conn = conn_sipni, name = "sipni")
 
   # Read files from the list in chunks and store in temporary database
   for(f in files_list){
