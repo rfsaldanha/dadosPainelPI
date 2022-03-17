@@ -10,7 +10,7 @@ read_sivep_gripe <- function(files_folder, chunk_size = 100000){
   db_file_path <- tempfile()
 
   # Create temporary database and connection
-  conn_sivep_gripe <- DBI::dbConnect(RSQLite::SQLite(), db_file_path, extended_types = TRUE))
+  conn_sivep_gripe <- DBI::dbConnect(RSQLite::SQLite(), db_file_path, extended_types = TRUE)
 
   # Sivep Gripe variables definitions
   cols_definitions <- readr::cols(
