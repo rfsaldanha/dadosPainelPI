@@ -66,5 +66,5 @@ read_sipni <- function(files_folder, chunk_size = 100000){
   }
 
   # Return a lazy connection to SIPNI table
-  return(dplyr::tbl(conn_teste, "sipni"))
+  return(dplyr::tbl(conn_sipni, "sipni"))
 }
