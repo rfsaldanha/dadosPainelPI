@@ -4,7 +4,7 @@
 \alias{prepare_vaccination}
 \title{Prepare a tibble with vaccination counts for a UF}
 \usage{
-prepare_vaccination(lazy_sipni)
+prepare_vaccination(lazy_sipni, uf_acronym = "PI")
 }
 \arguments{
 \item{lazy_sipni}{Lazi table from \code{read_sipni} function.}
