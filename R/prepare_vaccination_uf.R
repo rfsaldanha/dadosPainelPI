@@ -5,7 +5,7 @@
 #' @return A tibble.
 #' @importFrom rlang .data
 
-prepare_vaccination <- function(lazy_sipni, uf_acronym = "PI"){
+prepare_vaccination_uf <- function(lazy_sipni, uf_acronym = "PI"){
   lazy_sipni %>%
     dplyr::filter(.data$paciente_endereco_uf == uf_acronym) %>%
     dplyr::mutate(vacina_descricao_dose = dplyr::case_when(
