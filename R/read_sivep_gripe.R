@@ -3,6 +3,7 @@
 #' @param files_folder Path to folder containing CSV files from Brazilian Health Ministry
 #' @param chunk_size Integer. Chunk size to read CSV files. Default 100,000 lines.
 #' @return A connection to a temporary SQLite database with Sivep Gripe data in table called `sivep_gripe`.
+#' @importFrom rlang .data
 
 read_sivep_gripe <- function(files_folder, chunk_size = 100000){
   # Create temporary file for the database
